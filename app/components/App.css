@@ -1,0 +1,22 @@
+.ContainerStyle {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.ContainerStyle > .NavBarStyle {
+    width: 100%;
+}
+
+.ContainerStyle > .Content {
+    flex: 1;
+    width: 100%;
+}
+
+.ContainerStyle > .TabBar {
+    width: 100%;
+}
+
