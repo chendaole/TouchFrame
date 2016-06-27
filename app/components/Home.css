@@ -1,0 +1,7 @@
+.Home{
+    background: #f4f4f4;
+}
+.Home > .Slide{
+    margin-top: 0;
+    padding: 0;
+}
