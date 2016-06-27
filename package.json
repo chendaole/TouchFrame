@@ -51,31 +51,6 @@
     "boilerplate"
   ],
   "author": "chendaole",
-  "license": "MIT",
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "npm run lint:msg"
-    },
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert"
-      ],
-      "warnOnFail": false,
-      "maxSubjectLength": 100
-    },
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chendaole/TouchFrame.git"
