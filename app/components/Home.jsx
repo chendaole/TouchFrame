@@ -40,7 +40,7 @@ export default class Home extends React.Component{
     }
 
     componentWillMount(){
-        netData.getHomeData().then(homeData =>{
+        netData.getHomeSlideData().then(homeData =>{
             this.setState({homeData : homeData});
         })
     }
@@ -68,7 +68,6 @@ export default class Home extends React.Component{
 
     renderSlider(){
         const {homeData} = this.state;
-        console.log(homeData);
         return(
             <Slider>
                 {homeData.map((item,i) => {

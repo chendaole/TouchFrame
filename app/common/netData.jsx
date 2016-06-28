@@ -1,6 +1,6 @@
 var baiduApiKey = '471cd12cec1fcb77cfdea3974d6f7a87';
 var myexpress ={
-    homeDate: 'http://localhost:3000/resources/json/homeData'
+    homeSlideData: 'http://localhost:3000/resources/json/home-slidedata'
 };
 export default class netData {
     static get(url){
@@ -44,8 +44,8 @@ export default class netData {
         });
     }
 
-    static getHomeData(){
-        const req = new Request(myexpress.homeDate,{method:'GET'});
+    static getHomeSlideData(){
+        const req = new Request(myexpress.homeSlideData,{method:'GET'});
         return fetch(req).then((response) => {
             const promise = new Promise((resolve,reject)=>{
                 resolve(response.json());
