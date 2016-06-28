@@ -1,4 +1,6 @@
 import React from 'react';
+
+import netData from '../common/netData.jsx';
 import {Container, Slider ,Group, Card} from 'amazeui-touch';
 
 import './Home.css';
@@ -27,32 +29,23 @@ const CardData = [
         title:'测试6',
         content:'测试测试测试测试测试'
     }
-]
-
-const SlideData = [
-    {
-        thumb: 'http://s.amazeui.org/media/i/demos/bing-1.jpg',
-        img: 'http://s.amazeui.org/media/i/demos/bing-1.jpg'
-    },
-    {
-        thumb: 'http://s.amazeui.org/media/i/demos/bing-2.jpg',
-        img: 'http://s.amazeui.org/media/i/demos/bing-2.jpg'
-    },
-    {
-        thumb: 'http://s.amazeui.org/media/i/demos/bing-3.jpg',
-        img: 'http://s.amazeui.org/media/i/demos/bing-3.jpg'
-    },
-    {
-        thumb: 'http://s.amazeui.org/media/i/demos/bing-4.jpg',
-        img: 'http://s.amazeui.org/media/i/demos/bing-4.jpg'
-    }];
+];
 
 export default class Home extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            homeData: []
+        }
     }
 
-    renderNewsCard() {
+    componentWillMount(){
+        netData.getHomeData().then(homeData =>{
+            this.setState({homeData : homeData});
+        })
+    }
+
+    renderNewsCard(){
         const footer = (
             <Card.Child role="footer">
                 <a href="javascript: void(0)">Like</a>
@@ -61,23 +54,24 @@ export default class Home extends React.Component{
             </Card.Child>
         );
 
-
         return CardData.map((item,i) =>{
             return(
                 <Card
                     key={i}
                     title={item.title}
                     footer={footer}>
-                    <p>item.content</p>
+                    <p>{item.content}</p>
                 </Card>
             );
         });
     }
 
     renderSlider(){
+        const {homeData} = this.state;
+        console.log(homeData);
         return(
             <Slider>
-                {SlideData.map((item,i) => {
+                {homeData.map((item,i) => {
                     return(
                         <Slider.Item
                             key={i}
