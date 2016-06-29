@@ -58,5 +58,6 @@
   "bugs": {
     "url": "https://github.com/chendaole/TouchFrame/issues"
   },
-  "homepage": "https://github.com/chendaole/TouchFrame#readme"
+  "homepage": "https://github.com/chendaole/TouchFrame#readme",
+  "license": "ISC"
 }

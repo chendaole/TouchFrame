@@ -5,47 +5,27 @@ import {Container, Slider ,Group, Card} from 'amazeui-touch';
 
 import './Home.css';
 
-const CardData = [
-    {
-        title:'测试1',
-        content:'测试测试测试测试测试'
-    },
-    {
-        title:'测试2',
-        content:'测试测试测试测试测试'
-    },
-    {
-        title:'测试3',
-        content:'测试测试测试测试测试'
-    },{
-        title:'测试4',
-        content:'测试测试测试测试测试'
-    },
-    {
-        title:'测试5',
-        content:'测试测试测试测试测试'
-    },
-    {
-        title:'测试6',
-        content:'测试测试测试测试测试'
-    }
-];
-
 export default class Home extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            homeData: []
+            homeSlideData: [],
+            homeCardsData:[]
         }
     }
 
     componentWillMount(){
-        netData.getHomeSlideData().then(homeData =>{
-            this.setState({homeData : homeData});
+        netData.getHomeSlideData().then(homeSlideData =>{
+            this.setState({homeSlideData : homeSlideData},()=>{
+                netData.getHomeCardsData().then(homeCardsData => {
+                    this.setState({homeCardsData: homeCardsData});
+                })
+            });
         })
     }
 
     renderNewsCard(){
+        const {homeCardsData} = this.state;
         const footer = (
             <Card.Child role="footer">
                 <a href="javascript: void(0)">Like</a>
@@ -54,7 +34,7 @@ export default class Home extends React.Component{
             </Card.Child>
         );
 
-        return CardData.map((item,i) =>{
+        return homeCardsData.map((item,i) =>{
             return(
                 <Card
                     key={i}
@@ -67,10 +47,10 @@ export default class Home extends React.Component{
     }
 
     renderSlider(){
-        const {homeData} = this.state;
+        const {homeSlideData} = this.state;
         return(
             <Slider>
-                {homeData.map((item,i) => {
+                {homeSlideData.map((item,i) => {
                     return(
                         <Slider.Item
                             key={i}
@@ -86,14 +66,16 @@ export default class Home extends React.Component{
 
     render(){
         return(
-                 <Container
-                     className="Home"
-                     scrollable={true}>
-                     <Group className="Slide">
+            <div>
+                <Container
+                    className="Home"
+                    scrollable={true}>
+                    <Group className="Slide">
                         {this.renderSlider()}
-                     </Group>
-                     {this.renderNewsCard()}
+                    </Group>
+                    {this.renderNewsCard()}
                 </Container>
+            </div>
         );
     }
 }

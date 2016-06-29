@@ -50,7 +50,7 @@ export default class App extends React.Component{
                             {...NavBarWithCanvas}
                             amStyle="primary"/>
                     </Container>
-                    <Container className="body" fill>
+                    <Container className="body">
                         {content}
                     </Container>
                     <Container className="footer">
