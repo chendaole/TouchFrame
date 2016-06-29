@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
-import'../node_modules/amazeui-touch/dist/amazeui.touch.min.css';
-
 export default class Main extends React.Component{
     render(){
         return(

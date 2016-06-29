@@ -1,7 +1,7 @@
 var baiduApiKey = '471cd12cec1fcb77cfdea3974d6f7a87';
 var myexpress ={
-    homeSlideData: 'http://localhost:3000/resources/json/home-slidedata',
-    homeCardsData: 'http://localhost:3000/resources/json/home-cardsdata'
+    homeSlideData: 'http://localhost:3000/resources/home-slidedata',
+    homeCardsData: 'http://localhost:3000/resources/home-cardsdata'
 };
 export default class netData {
     static get(url){
