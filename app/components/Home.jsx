@@ -17,8 +17,9 @@ export default class Home extends React.Component{
     componentWillMount(){
         netData.getHomeSlideData().then(homeSlideData =>{
             this.setState({homeSlideData : homeSlideData},()=>{
-                netData.getHomeCardsData().then(homeCardsData => {
-                    this.setState({homeCardsData: homeCardsData});
+                netData.getHomeCardsData().then(result => {
+                    console.log(result.rows);
+                    this.setState({homeCardsData: result.rows});
                 })
             });
         })
@@ -38,9 +39,9 @@ export default class Home extends React.Component{
             return(
                 <Card
                     key={i}
-                    title={item.title}
+                    title={item.value.title}
                     footer={footer}>
-                    <p>{item.content}</p>
+                    <p>{item.value.content}</p>
                 </Card>
             );
         });
