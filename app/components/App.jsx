@@ -9,7 +9,7 @@ import './App.css';
 
 const NavBarTitle = {
     home : '主页',
-    gear :'其他',
+    person :'私人',
     info : '信息'
 };
 
@@ -50,7 +50,7 @@ export default class App extends React.Component{
                             {...NavBarWithCanvas}
                             amStyle="primary"/>
                     </Container>
-                    <Container className="body">
+                    <Container className="body" fill>
                         {content}
                     </Container>
                     <Container className="footer">
@@ -62,19 +62,19 @@ export default class App extends React.Component{
                                 eventKey = "home"
                                 active = {this.state.tab === 'home'}
                                 icon = 'home'
-                                title = '首页'
+                                title = {NavBarTitle.home}
                             />
                             <TabBar.Item
                                 eventKey = 'gear'
                                 active = {this.state.tab === 'gear'}
                                 icon = 'gear'
-                                title = '设置'
+                                title = {NavBarTitle.person}
                             />
                             <TabBar.Item
                                 eventKey = 'info'
                                 active = {this.state.tab === 'info'}
                                 icon="info"
-                                title="信息"
+                                title={NavBarTitle.info}
                                 badge={7}/>
                         </TabBar>
                     </Container>

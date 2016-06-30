@@ -25,6 +25,7 @@ export default class Home extends React.Component{
         })
     }
 
+
     renderNewsCard(){
         const {homeCardsData} = this.state;
         const footer = (
