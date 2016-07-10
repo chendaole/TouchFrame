@@ -3,7 +3,7 @@ import { Container ,TabBar, NavBar, OffCanvas , OffCanvasTrigger} from 'amazeui-
 
 import LeftTab from './LefTab.jsx';
 import Home from './Home.jsx';
-import Gear from './Gear.jsx';
+import Person from './Person.jsx';
 
 import './App.css';
 
@@ -28,7 +28,7 @@ export default class App extends React.Component{
 
     render(){
         const { tab } = this.state;
-        const content= tab === 'home' ? <Home/> : <Gear/>;
+        const content= tab === 'home' ? <Home/> : <Person/>;
 
         const NavBarWithCanvas = {
             title : NavBarTitle[tab],
@@ -43,7 +43,7 @@ export default class App extends React.Component{
 
         return(
             <Container className="ContainerStyle">
-                <Container fill style={{ background : 'white' }}>
+                <Container style={{ background : 'white' }}>
                     <Container className = 'header'>
                         <NavBar
                             className="NavBarStyle"
